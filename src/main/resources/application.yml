@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: FitnessApplication
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/Fitness-Tracker
+    username: abhishek
+    password: abhi@1234
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+server:
+  port: 9090
