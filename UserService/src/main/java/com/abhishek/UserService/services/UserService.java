@@ -5,10 +5,12 @@ import com.abhishek.UserService.dto.UserResponse;
 import com.abhishek.UserService.models.User;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
+@Slf4j
 public class UserService {
 
     private final UserRepository userRepository;
@@ -47,5 +49,10 @@ public class UserService {
         userResponse.setUpdatedAt(user.getUpdatedAt());
         userResponse.setCreatedAt(user.getCreatedAt());
         return userResponse;
+    }
+
+    public Boolean existByUserId(Long userId) {
+        log.info("Calling User service for userId: {}", userId);
+        return userRepository.existsById(userId);
     }
 }
